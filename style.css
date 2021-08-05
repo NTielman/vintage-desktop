@@ -1,0 +1,129 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: Microsoft, Helvetica, sans-serif;
+}
+
+/* Desktop */
+.desktop {
+  background-color: blue;
+}
+
+/* Desktop list */
+.desktop-items {
+  height: 100%;
+  width: inherit;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop item */
+.desktop-item {
+  background-color: ivory;
+  padding: 1em;
+  margin: 1em;
+  cursor: pointer;
+}
+
+/* Taskbar */
+.taskbar {
+  background-color: grey;
+  display: flex;
+  width: inherit;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* Nav menu */
+nav {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+/* Hidden input */
+#toggle-menu {
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+
+.start-btn {
+  background-color: lightseagreen;
+  padding: 0.5em;
+  border: 5px ridge grey;
+}
+
+ul.main-menu {
+  background-color: lightgrey;
+  position: absolute;
+  top: 0;
+  left: 0;
+  list-style: none;
+  transition: all 500ms ease-in-out;
+  transform-origin: bottom left;
+  transform-style: preserve-3d;
+
+  /* add pointer events when menu visible */
+  pointer-events: none;
+  transform: translate(-100%, -100%);
+}
+
+.date-info {
+  background-color: lightskyblue;
+  border: 5px ridge grey;
+}
+
+#toggle-menu:checked ~ ul.main-menu {
+  pointer-events: all;
+  transform: translate(0, -100%);
+}
+
+/* Navbar items */
+.menu-item {
+  cursor: pointer;
+  padding: 1em;
+}
+
+.menu-item + .menu-item {
+  border-top: solid 1px black;
+}
+
+/* New windows */
+#root {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.514);
+  width: 100%;
+  /* height: 100%; */
+  display: grid;
+  place-items: center;
+}
+
+.window {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  width: 500px;
+  background-color: lightsteelblue;
+  /* overflow: hidden; */
+  transition: 300ms ease-in-out;
+}
+
+/* style checked and unchecked .tab items */
